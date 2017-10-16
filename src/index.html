@@ -11,26 +11,20 @@
         <link rel="stylesheet" type="text/css" href="css/styles.css">
     </head>
 
-    <body>
+    <body onload="javascript:callAPI.loadData()">
         <main class="container">
             <header class="row">
-                <h1>Best beers of the world</h1>
+                <h1 class="center">Best beers of the world</h1>
             </header>
 
-            <section>
-                <div class="row">
-                    <article>
-                        <img src="" alt="">
-                        <h3>Name of beer</h3>
-                        <p>Description of beer</p>
-                    </article>
-                </div>  
+            <section id="beerlist">
+
             </section>
 
             <footer><img src="assets/Kagool.png" alt="Kagool Logo"></footer>
             
         </main>
         <script  src="js/jquery-3.2.1.min.js"></script>
-        <script  src="js/scripts.js"></script>
+        <script  src="js/script.js"></script>
     </body>
 </html>

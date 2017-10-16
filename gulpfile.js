@@ -24,7 +24,7 @@ gulp.task('clean-scripts', function () {
 
 gulp.task('copy-js', function () {
     return gulp.src('src/js/*.js')
-        .pipe(uglify({ 'mangle': false }))
+        // .pipe(uglify({ 'mangle': false }))
         .pipe(gulp.dest('dist/js'));
 });
 
