@@ -4,7 +4,7 @@ sass = require('gulp-sass'),
 concat = require('gulp-concat'),
 cleanCSS = require('gulp-clean-css'),
 clean = require('gulp-clean'),
-htmlmin = require('gulp-htmlmin');
+htmlmin = require('gulp-htmlmin'),
 browserSync = require('browser-sync').create();
 
 
@@ -35,10 +35,8 @@ gulp.task('copy-html', function () {
 });
 
 gulp.task('copy-assets', function () {
-    return gulp.src('src/assets/fonts/*.*')
-        .pipe(gulp.dest('dist/assets/fonts')),
-    gulp.src('src/assets/images/*.{png,svg}')
-        .pipe(gulp.dest('dist/assets/images'));
+    return gulp.src('src/assets/*.*')
+        .pipe(gulp.dest('dist/assets'));
 });
 
 gulp.task('browser-sync', function(){
@@ -49,7 +47,8 @@ gulp.task('browser-sync', function(){
     });
 });
 
-gulp.task('watch', ['sass', 'copy-html', 'copy-js', 'browser-sync'], function(){
+gulp.task('watch', ['sass', 'copy-assets', 'copy-html', 'copy-js', 'browser-sync'], function(){
+    gulp.watch('src/assets/*.*', ['copy-assets']);
     gulp.watch('src/sass/*.scss', ['sass']);
     gulp.watch('src/*.html', ['copy-html']);
     gulp.watch('src/js/*.js', ['copy-js']);
