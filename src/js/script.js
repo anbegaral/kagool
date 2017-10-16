@@ -12,12 +12,20 @@ var callAPI = (function () {
                     var newBeer = new Object();
                     newBeer = data[beer];
 
-                    var beerHtml = '<article class="beer"><img src="' + newBeer.image_url + '" alt="' + newBeer.name + '"><h3>' + newBeer.name + '</h3><p>' + newBeer.tagline + '</p></article>';
+                    var beerHtml = '<dl><dt id="beer'+ newBeer.id + '" class="accordion">' + newBeer.name + '</dt><dd class="beer"><p>' + newBeer.tagline + '. (First brewed date: '+ newBeer.first_brewed +')</p></dd></dl>';
                     beers.push(beerHtml)
                 }
 
                 beerSection.html(beers);
-            }).fail(function(){
+
+            })
+            .done(function() {
+                // we need to wait until the dom is complete to call this functions
+                accordion.openThis();
+                accordion.openAll();
+                accordion.closeAll();
+            })
+            .fail(function(){
                 beerSection.html("The list of beers could not be loaded.");
             });
     }
@@ -26,3 +34,47 @@ var callAPI = (function () {
         loadData: loadData
     }
 })();
+
+var accordion = (function () {
+    
+    var openThis = () => { 
+        var acc = $('.accordion');
+        var beer = $('.beer');
+
+        beer.hide();
+
+        for (i in acc) {
+            acc[i].onclick = function() {
+                beer.slideUp();
+                $(this).next().slideDown();
+            }
+        }
+    }
+
+    var openAll = () => {
+        var seeAll = $('.seeAll');      
+        var beer = $('.beer');
+
+        seeAll.on('click', function() {
+            beer.slideDown();
+        })
+    }
+
+    var closeAll = () => {
+        var hideAll = $('.hideAll');      
+        var beer = $('.beer');
+
+        hideAll.on('click', function() {
+            beer.slideUp();
+        })
+    }
+
+
+    return {
+        openThis: openThis,
+        openAll: openAll,
+        closeAll: closeAll
+    }
+
+})();
+document.onload = callAPI.loadData();

@@ -5,7 +5,7 @@ html, body {
     line-height: 1.4em;
     font-size: 14px;    
     margin: 0;
-    padding: 0;
+    padding: 0px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -17,24 +17,75 @@ html, body {
     width: 100%;
 }
 
-.row {
-    width: 100%;
+h1 {
+    text-align: center;
+}
+
+.seeAll {
+    cursor: pointer;
+    text-align: center;
+    padding: 20px;
+    border: none;
+    transition: 0.4s;
+
+    &:active, &:hover {
+        background-color: #ccc;
+    }
+}
+
+.hideAll {
+    cursor: pointer;
+    text-align: center;
+    padding: 20px;
+    border: none;
+    transition: 0.4s;
+
+    &:active, &:hover {
+        background-color: #ccc;
+    }
+}
+
+
+section {
     display: -webkit-flex;
     display: flex;
-    -webkit-flex-flow: row wrap;
-    flex-flow: row wrap;
+    -webkit-flex-flow: column wrap;
+    flex-flow: column wrap;
+    max-width: 50%;
+    margin: auto;
+    overflow: hidden; 
+    height: 100%;
+}
 
-    &.center {
-        justify-content: center;    
+dt {
+    background-color: #eee;
+    cursor: pointer;
+    padding: 20px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    transition: 0.4s;
+
+    &:active, &:hover {
+        background-color: #ccc;
     }
 
 }
 
+dd {
+    padding: 0 20px;
+    display: none;
+    background-color: white;
+
+}
+
+    
 footer {
-    height: 10%;
     background-color: #545454;
     
     img {
+        margin-top: 10px;
         padding-left: 15%;
     }
 }
