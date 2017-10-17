@@ -14,18 +14,34 @@
     <body>
         <main class="container">
             <header>
+                <div class="carousel">  
+                    <div class="cycle-slideshow" data-cycle-fx="scrollHorz" data-cycle-timeout="0" data-cycle-prev="#prev" data-cycle-next="#next">
+                        <img src="assets/images/192_90_small_x1.png" alt="Image number 192">
+                        <img src="assets/images/194_90_small_x1.png" alt="Image number 194">
+                        <img src="assets/images/196_90_small_x1.png" alt="Image number 192">
+                        <img src="assets/images/198_90_small_x1.png" alt="Image number 192">
+                    </div>
+                    <div class="center">
+                        <a href=# id="prev">Previous Beer</a> 
+                        <a href=# id="next">Next Beer</a>
+                    </div>
+                </div>
                 <h1>Best beers of the world</h1>
-                <p class="seeAll">Open the whole list</p>
-                <p class="hideAll">Close the whole list</p>
             </header>
 
-            <section id="beerlist">
+            <section>
+                <p class="seeAll">Open the whole list</p>
+                <p class="hideAll">Close the whole list</p>
+            </section>
+            
+            <section class="beerlist">
             </section>
 
             <footer><img src="assets/Kagool.png" alt="Kagool Logo"></footer>
             
         </main>
         <script  src="js/jquery-3.2.1.min.js"></script>
+        <script  src="js/jquery.cycle2.min.js"></script>
         <script  src="js/script.js"></script>
     </body>
 </html>

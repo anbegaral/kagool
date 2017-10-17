@@ -1,18 +1,18 @@
-var callAPI = (function () {
+let callAPI = (function () {
 
-    var loadData = function() {
-        const url = "https://api.punkapi.com/v2/beers";
+    let loadData = function() {
+        let url = "https://api.punkapi.com/v2/beers";
 
         $.getJSON(url)
             .done(function(data){
-                var beers = [];
-                var beerSection = $("#beerlist"); 
+                let beers = [];
+                let beerSection = $(".beerlist"); 
 
-                for(var beer in data) {
-                    var newBeer = new Object();
+                for(let beer in data) {
+                    let newBeer = new Object();
                     newBeer = data[beer];
 
-                    var beerHtml = '<dl><dt id="beer'+ newBeer.id + '" class="accordion">' + newBeer.name + '</dt><dd class="beer"><p>' + newBeer.tagline + '. (First brewed date: '+ newBeer.first_brewed +')</p></dd></dl>';
+                    let beerHtml = '<dl><dt id="beer'+ newBeer.id + '" class="accordion">' + newBeer.name + '</dt><dd class="beer"><p>' + newBeer.tagline + '. (First brewed date: '+ newBeer.first_brewed +')</p><p>' + newBeer.description + '</p></dd></dl>';
                     beers.push(beerHtml)
                 }
 
@@ -33,17 +33,18 @@ var callAPI = (function () {
     return {
         loadData: loadData
     }
+
 })();
 
-var accordion = (function () {
+let accordion = (function () {
     
-    var openThis = () => { 
-        var acc = $('.accordion');
-        var beer = $('.beer');
+    let openThis = () => { 
+        let acc = $('.accordion');
+        let beer = $('.beer');
 
         beer.hide();
 
-        for (i in acc) {
+        for (let i = 0; i < acc.length; i++) {
             acc[i].onclick = function() {
                 beer.slideUp();
                 $(this).next().slideDown();
@@ -51,18 +52,18 @@ var accordion = (function () {
         }
     }
 
-    var openAll = () => {
-        var seeAll = $('.seeAll');      
-        var beer = $('.beer');
+    let openAll = () => {
+        let seeAll = $('.seeAll');      
+        let beer = $('.beer');
 
         seeAll.on('click', function() {
             beer.slideDown();
         })
     }
 
-    var closeAll = () => {
-        var hideAll = $('.hideAll');      
-        var beer = $('.beer');
+    let closeAll = () => {
+        let hideAll = $('.hideAll');      
+        let beer = $('.beer');
 
         hideAll.on('click', function() {
             beer.slideUp();
