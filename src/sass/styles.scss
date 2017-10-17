@@ -17,6 +17,10 @@ html, body {
     width: 100%;
 }
 
+.carousel {
+    text-align: center;
+}
+
 h1 {
     text-align: center;
 }
@@ -45,8 +49,7 @@ h1 {
     }
 }
 
-
-section {
+section.beerlist {
     display: -webkit-flex;
     display: flex;
     -webkit-flex-flow: column wrap;
