@@ -3,9 +3,9 @@ html, body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-style: normal;
     line-height: 1.4em;
-    font-size: 14px;    
+    font-size: 12px;    
     margin: 0;
-    padding: 0px;
+    padding: 10px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -49,46 +49,98 @@ h1 {
     }
 }
 
-section.beerlist {
+section.beerList {
     display: -webkit-flex;
     display: flex;
     -webkit-flex-flow: column wrap;
     flex-flow: column wrap;
-    max-width: 50%;
+    max-width: 75%;
     margin: auto;
     overflow: hidden; 
     height: 100%;
 }
 
 dt {
-    background-color: #eee;
+    background-color: #206303;
     cursor: pointer;
     padding: 20px;
     width: 100%;
     border: none;
+    color: #fff;
     text-align: left;
     outline: none;
     transition: 0.4s;
 
     &:active, &:hover {
-        background-color: #ccc;
+        background-color: #02b40b;
     }
 
 }
 
 dd {
-    padding: 0 20px;
     display: none;
     background-color: white;
-
 }
 
-    
+.fadebeer {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    justify-content: center;
+}
+
+section.beerGrid {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    -moz-box-flex: wrap;
+    -ms-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 100%;
+    margin: auto;
+    overflow: hidden;
+}
+
+article {
+    margin: 15px;
+    text-align: center;
+}
+
 footer {
     background-color: #545454;
     
     img {
         margin-top: 10px;
         padding-left: 15%;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px){
+    html, body {
+        font-size: 14px;    
+    }
+
+    section.beerList {
+        max-width: 60%;
+    }
+
+    article {
+        width: 40%;
+    }
+}
+
+@media screen and (min-width: 1280px){
+    html, body {
+        font-size: 16px;    
+    }
+
+    section.beerList {
+        max-width: 50%;
+    }
+
+    article {
+        width: 20%;
     }
 }
