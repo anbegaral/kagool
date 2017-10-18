@@ -6,17 +6,23 @@ let callAPI = (function () {
         $.getJSON(url)
             .done(function(data){
                 let beers = [];
-                let beerSection = $(".beerlist"); 
+                let gridBeers = [];
+                let beerSection = $(".beerList"); 
+                let beerGridSection = $(".beerGrid"); 
 
                 for(let beer in data) {
                     let newBeer = new Object();
                     newBeer = data[beer];
 
                     let beerHtml = '<dl><dt id="beer'+ newBeer.id + '" class="accordion">' + newBeer.name + '</dt><dd class="beer"><p>' + newBeer.tagline + '. (First brewed date: '+ newBeer.first_brewed +')</p><p>' + newBeer.description + '</p></dd></dl>';
-                    beers.push(beerHtml)
+                    let beerGridHtml = '<article><h3>' + newBeer.name + '</h3><p>' + newBeer.tagline + ' Alc: ' + newBeer.abv +'</p><p>' + newBeer.description + '</p></article>';
+                    
+                    beers.push(beerHtml);
+                    gridBeers.push(beerGridHtml);
                 }
 
                 beerSection.html(beers);
+                beerGridSection.html(gridBeers);
 
             })
             .done(function() {
@@ -30,8 +36,13 @@ let callAPI = (function () {
             });
     }
 
+    let filter = ((alcParam) => {
+
+    })
+
     return {
-        loadData: loadData
+        loadData: loadData,
+        filter: filter
     }
 
 })();
